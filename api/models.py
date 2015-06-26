@@ -18,6 +18,9 @@ class Author(models.Model):
     salutation = models.CharField(max_length=10)
     name = models.CharField(max_length=200)
 
+    class Meta:
+        ordering = ['name']
+
     def __str__(self):              # __unicode__ on Python 2
         return self.name
 
