@@ -8,7 +8,8 @@ class Publisher(models.Model):
     state_province = models.CharField(max_length=30)
     country = models.CharField(max_length=50)
 
-    dsasadssad
+    class Meta:
+        ordering = ["-name"]
 
     def __str__(self):              # __unicode__ on Python 2
         return self.name
