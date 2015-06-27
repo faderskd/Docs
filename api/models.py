@@ -11,12 +11,12 @@ class Publisher(models.Model):
     class Meta:
         ordering = ["-name"]
 
-zmiana w miedzyczasie zmiany bez commita
+zmiana poczatkowa
 
     def __str__(self):              # __unicode__ on Python 2
         return self.name
 
-zmiana tez zaszla na serwerze lecz tego bloku nie ruszalem
+stan poczatkowy bloku nieruszanego przeze mnie
 
 class Author(models.Model):
     salutation = models.CharField(max_length=10)
