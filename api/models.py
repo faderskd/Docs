@@ -16,7 +16,7 @@ zmiana na serwerze
     def __str__(self):              # __unicode__ on Python 2
         return self.name
 
-inna zmiana na serwerze do mergu1
+inna zmiana na serwerze do mergu2
 
 class Author(models.Model):
     salutation = models.CharField(max_length=10)
