@@ -26,6 +26,8 @@ class Author(models.Model):
     class Meta:
         ordering = ['salutation']
 
+asdads
+
     def __str__(self):              # __unicode__ on Python 2
         return self.name
 
