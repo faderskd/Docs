@@ -20,7 +20,6 @@ class ContactForm(forms.Form):
         # send email using the self.cleaned_data dictionary
         pass
 
-a tutaj moja z commitem
 
 class ContactView(TemplateView):
     template_name = 'authors.html'
