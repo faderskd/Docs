@@ -16,7 +16,7 @@ zmiana w miedzyczasie zmiany bez commita
     def __str__(self):              # __unicode__ on Python 2
         return self.name
 
-inna zmiana na serwerze do mergu5
+zmiana tez zaszla na serwerze lecz tego bloku nie ruszalem
 
 class Author(models.Model):
     salutation = models.CharField(max_length=10)
