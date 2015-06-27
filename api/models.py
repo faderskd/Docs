@@ -11,7 +11,7 @@ class Publisher(models.Model):
     class Meta:
         ordering = ["-name"]
 
-i znow ktos zmienil
+i znow ktos zmienil jeszcze raz
 
     def __str__(self):              # __unicode__ on Python 2
         return self.name
