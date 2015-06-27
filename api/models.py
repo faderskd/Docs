@@ -12,6 +12,7 @@ class Publisher(models.Model):
         ordering = ["-name"]
 
 zmiana poczatkowa na serwerze
+zmiana dodatkowa z serwera
 
     def __str__(self):              # __unicode__ on Python 2
         return self.name
