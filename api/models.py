@@ -11,6 +11,7 @@ class Publisher(models.Model):
     class Meta:
         ordering = ["-name"]
 
+zmiana poczatkowa na serwerze (najnowsza) hehe
 zmiana poczatkowa na serwerze (najnowsza) ble ble
 
     def __str__(self):              # __unicode__ on Python 2
