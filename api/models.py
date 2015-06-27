@@ -16,7 +16,7 @@ zmiana poczatkowa
     def __str__(self):              # __unicode__ on Python 2
         return self.name
 
-stan poczatkowy bloku nieruszanego przeze mnie
+stan poczatkowy bloku nieruszanego sie zmienil 
 
 class Author(models.Model):
     salutation = models.CharField(max_length=10)
