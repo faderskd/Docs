@@ -24,7 +24,6 @@ class Author(models.Model):
 
     class Meta:
         ordering = ['salutation']
-bugi
 
 
 
