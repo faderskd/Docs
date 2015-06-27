@@ -24,7 +24,6 @@ class Author(models.Model):
 
     class Meta:
         ordering = ['salutation']
-serwer
 
 
     def __str__(self):              # __unicode__ on Python 2
