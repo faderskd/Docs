@@ -11,26 +11,35 @@ class Publisher(models.Model):
     class Meta:
         ordering = ["-name"]
 
-zmiana poczatkowa na serwerze
-
     def __str__(self):              # __unicode__ on Python 2
         return self.name
-
-stan poczatkowy bloku nieruszanego sie zmienil 
 
 class Author(models.Model):
     salutation = models.CharField(max_length=10)
     name = models.CharField(max_length=200)
+    foo = models.CharField(max_length=100, null=True)
+    publisher = models.ForeignKey(Publisher)
+
 
     class Meta:
         ordering = ['salutation']
 
 
-
     def __str__(self):              # __unicode__ on Python 2
         return self.name
+
+
+class BookManager(models.Manager):
+    def foo(self):
+        return super(BookManager, self).get_queryset().filter(title='nowa')
 
 class Book(models.Model):
     title = models.CharField(max_length=100)
     authors = models.ManyToManyField('Author')
     publisher = models.ForeignKey(Publisher)
+
+    objects = BookManager()
+
+    def save(self,*args,**kwargs):
+        super(Book,self).save(*args, **kwargs)
+        print(self.pk)

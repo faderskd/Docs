@@ -67,13 +67,13 @@ DATABASES = {
 # Internationalization
 # https://docs.djangoproject.com/en/1.7/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'pl-pl'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Europe/Warsaw'
 
 USE_I18N = True
 
-USE_L10N = True
+USE_L10N = False
 
 USE_TZ = True
 
@@ -92,3 +92,6 @@ STATIC_URL = '/static/'
 TEMPLATE_DIRS = (
     join(BASE_DIR,  'templates'),
 )
+
+
+DATETIME_FORMAT = 'Y-m-d H:m'

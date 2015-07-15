@@ -8,15 +8,21 @@
 
 
 <h1> {{ author.name }}</h1>
+
+
 {% for book in book_list %}
     <p> {{ book.title }} </p>
 {% endfor %}
 
+<a href="{% url 'api:author-details' 2 %}">link</a>
+
 <form method="post">
     {% csrf_token %}
-{{ form }}
+    {{ form }}
     <input type="submit">
 </form>
+
+
 
 </body>
 </html>

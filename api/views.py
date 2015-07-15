@@ -1,15 +1,11 @@
 from django.views.generic import ListView, DetailView
-from .models import Publisher, Book, Author
-from django.shortcuts import get_object_or_404
-from django.core.urlresolvers import reverse_lazy, reverse
-from django.http import HttpResponse
+from django.core.urlresolvers import reverse
 from django import forms
-from django.contrib.auth.models import User
-from django.views.generic.edit import FormMixin
 from django.views.generic.detail import SingleObjectMixin
-from django.views.generic import View, TemplateView, FormView
-
+from django.views.generic import View, TemplateView
 from django.views.generic.edit import FormView
+
+from .models import Author
 
 
 class ContactForm(forms.Form):
@@ -74,3 +70,12 @@ class AuthorDetail(View):
     def post(self, request, *args, **kwargs):
         view = AuthorReviewView.as_view()
         return view(request, *args, **kwargs)
+
+from django.shortcuts import render_to_response
+from django.template import RequestContext
+from tasks import create_author
+
+def test(request):
+    create_author.delay()
+    return render_to_response('detailed.html',context={},context_instance=RequestContext(request))
+
