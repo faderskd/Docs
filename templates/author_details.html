@@ -6,8 +6,9 @@
 </head>
 <body>
 
+{% load tag_extras %}
 
-<h1> {{ author.name }}</h1>
+<h1> {{ author.name|cut_own:'4' }}</h1>
 
 
 {% for book in book_list %}
