@@ -47,6 +47,7 @@ class AuthorReviewView(SingleObjectMixin, FormView):
     model = Author
 
     def get_success_url(self):
+        dupa
         self.object = self.get_object()
         return reverse('api:author-details', kwargs={'pk': self.object.pk})
 
