@@ -1,10 +1,11 @@
 {% extends 'outline.html' %}
 
-{% block details %}
-    {{ block.super }}
-    <p> Blok details</p>
-{% endblock %}
-
 {% block sth_else %}
-    <p> Blok sth else </p>
+
+<form action="." method="post">
+    {% csrf_token %}
+{{ form }}
+    <input type="submit" value="Przeslij">
+</form>
+
 {% endblock %}

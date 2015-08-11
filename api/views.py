@@ -11,11 +11,16 @@ from .models import Author
 class ContactForm(forms.Form):
     name = forms.CharField()
     message = forms.CharField(widget=forms.Textarea)
+    date = forms.DateField(required=False)
+
 
     def send_email(self):
         # send email using the self.cleaned_data dictionar y
         pass
 
+
+    def is_valid(self):
+        return super(ContactForm, self).is_valid()
 
 class ContactView(TemplateView):
     template_name = 'authors.html'
@@ -75,7 +80,24 @@ from django.shortcuts import render_to_response
 from django.template import RequestContext
 from tasks import create_author
 
-def test(request):
-    create_author.delay()
-    return render_to_response('detailed.html',context={},context_instance=RequestContext(request))
 
+
+from django.http import HttpResponse
+
+def test(request):
+    if request.method == 'POST':
+        form = ContactForm(request.POST)
+        print(form)
+        if form.is_valid():
+            return HttpResponse("wszystko ok")
+    else:
+        form = ContactForm({'name':'daniel'})
+        print(form)
+    return render_to_response('detailed.html',context={'form':form},context_instance=RequestContext(request))
+
+from django.forms import ModelForm
+
+
+class A(ModelForm):
+    def clean(self):
+        return super(A, self).is_valid()
