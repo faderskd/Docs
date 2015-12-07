@@ -6,7 +6,7 @@ from django.views.generic import View, TemplateView
 from django.views.generic.edit import FormView
 
 from .models import Author
-
+sss
 
 class ContactForm(forms.Form):
     name = forms.CharField()
