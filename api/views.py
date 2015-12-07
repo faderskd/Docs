@@ -3,9 +3,9 @@ from django.core.urlresolvers import reverse
 from django import forms
 from django.views.generic.detail import SingleObjectMixin
 from django.views.generic import View, TemplateView
-from django.views.generic.edit import FormView
+from django.views.generic.edit import FormView, FormMixin
 
-from .models import Author
+from .models import Author, Book
 
 
 class ContactForm(forms.Form):
@@ -13,14 +13,16 @@ class ContactForm(forms.Form):
     message = forms.CharField(widget=forms.Textarea)
     date = forms.DateField(required=False)
 
-
     def send_email(self):
         # send email using the self.cleaned_data dictionar y
         pass
 
-
     def is_valid(self):
         return super(ContactForm, self).is_valid()
+
+
+class CCForm(forms.Form):
+    pass
 
 class ContactView(TemplateView):
     template_name = 'authors.html'
@@ -35,9 +37,12 @@ class AuthorListView(ListView):
     template_name = 'authors.html'
     model = Author
 
+    # def get(self, request, *args, **kwargs):
+    #     self.object = self.get_object(queryset=Book.objects.all())
+    #     return super(AuthorListView, self).get(request, *args, **kwargs)
+
     def get_context_data(self, **kwargs):
         ctx = super(AuthorListView, self).get_context_data(**kwargs)
-        ctx.update({'pk': self.kwargs['pk']})
         return ctx
 
 

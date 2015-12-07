@@ -15,4 +15,5 @@ class AuthorAdmin(admin.ModelAdmin):
 admin.site.register(Publisher)
 admin.site.register(Author, AuthorAdmin)
 admin.site.register(Book)
+admin.site.register(BookImage)
 # Register your models here.

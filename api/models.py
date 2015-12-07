@@ -1,4 +1,3 @@
-# models.py
 from django.db import models
 
 class Publisher(models.Model):
@@ -24,7 +23,6 @@ class Author(models.Model):
     class Meta:
         ordering = ['salutation']
 
-
     def __str__(self):              # __unicode__ on Python 2
         return self.name
 
@@ -32,6 +30,7 @@ class Author(models.Model):
 class BookManager(models.Manager):
     def foo(self):
         return super(BookManager, self).get_queryset().filter(title='nowa')
+
 
 class Book(models.Model):
     title = models.CharField(max_length=100)
@@ -43,3 +42,21 @@ class Book(models.Model):
     def save(self,*args,**kwargs):
         super(Book,self).save(*args, **kwargs)
         print(self.pk)
+
+
+class BookImage(models.Model):
+    book = models.CharField(max_length=255)
+    image = models.ImageField(upload_to='images')
+
+
+from django.contrib.contenttypes.fields import GenericForeignKey
+from django.contrib.contenttypes.models import ContentType
+
+class TaggedItem(models.Model):
+    tag = models.SlugField()
+    content_type = models.ForeignKey(ContentType)
+    object_id = models.PositiveIntegerField()
+    content_object = GenericForeignKey('content_type', 'object_id')
+
+    def __str__(self):              # __unicode__ on Python 2
+        return self.tag
