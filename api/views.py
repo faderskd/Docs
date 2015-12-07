@@ -8,6 +8,7 @@ from django.views.generic.edit import FormView
 from .models import Author
 
 
+sdasds
 class ContactForm(forms.Form):
     name = forms.CharField()
     message = forms.CharField(widget=forms.Textarea)
