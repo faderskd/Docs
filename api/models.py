@@ -20,6 +20,7 @@ class Author(models.Model):
     foo = models.CharField(max_length=100, null=True)
     publisher = models.ForeignKey(Publisher)
 
+# tutaj dodalem komentarz
 
     class Meta:
         ordering = ['salutation']
